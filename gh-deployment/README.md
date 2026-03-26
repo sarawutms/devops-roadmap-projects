@@ -1,6 +1,8 @@
 # GitHub Pages Deployment Workflow
 
-This project is part of my DevOps roadmap learning. It demonstrates how to set up Continuous Integration and Continuous Deployment (CI/CD) using **GitHub Actions** to automatically deploy a static website to **GitHub Pages**.
+This project is part of my DevOps roadmap learning. It demonstrates how to set up Continuous Integration and Continuous Deployment (CI/CD) using **GitHub Actions** to automatically deploy a static website to **GitHub Pages**.  
+
+🔗 **Project URL:** [GitHub Pages Deployment](https://roadmap.sh/projects/github-actions-deployment-workflow)
 
 ## Requirements Met:
 - [x] Repository created.
