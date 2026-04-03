@@ -4,4 +4,5 @@
 🔗 [Log Archive Tool](https://roadmap.sh/projects/log-archive-tool) Build a tool to archive logs from the CLI with the date and time.    
 🔗 [Nginx Log Analyser](https://roadmap.sh/projects/nginx-log-analyser) Write a simple tool to analyze logs from the command line.  
 🔗 [GitHub Pages Deployment](https://roadmap.sh/projects/github-actions-deployment-workflow) Write a simple GitHub Actions workflow to deploy a static website to GitHub Pages.  
-🔗 [SSH Remote Server Setup](https://roadmap.sh/projects/ssh-remote-server-setup) Setup a basic remote linux server and configure it to allow SSH.  
+🔗 [SSH Remote Server Setup](https://roadmap.sh/projects/ssh-remote-server-setup) Setup a basic remote linux server and configure it to allow SSH.   
+🔗 [Static Site Server](https://roadmap.sh/projects/static-site-server) Setup a basic linux server and configure it to serve a static site.  
