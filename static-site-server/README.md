@@ -12,10 +12,10 @@
 └── README.md        # Project documentation and summary
 ```
 ## 🛠️  Prerequisites
-* **A remote or local Linux Server (Ubuntu/Debian recommended).
-* **Nginx installed and running on the target server.
-* **SSH access to the server.
-* **rsync installed on both the local machine and the server.  
+* A remote or local Linux Server (Ubuntu/Debian recommended).
+* Nginx installed and running on the target server.
+* SSH access to the server.
+* rsync installed on both the local machine and the server.  
 
 ## 🚀 Setup & Deployment Guide
 1. Server Preparation (One-time setup)
