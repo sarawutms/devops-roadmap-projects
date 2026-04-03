@@ -1,74 +1,50 @@
 # Basic DNS Setup
 
-This project is part of the [roadmap.sh DevOps Projects](https://roadmap.sh/projects/basic-dns-setup). The goal is to learn and practice the basics of DNS by setting up custom domains for a static site hosted on GitHub Pages and a web server hosted on a remote Linux server (Droplet).
+A quick lab project to practice setting up DNS records. The goal here is simple: link a custom domain to a GitHub Pages site and a self-hosted Nginx Linux server. 
 
-## 🎯 Objectives
-- Understand how DNS resolution works.
-- Learn the difference between `A` records and `CNAME` records.
-- Configure a custom domain for GitHub Pages.
-- Configure a custom domain for a Linux Web Server (e.g., DigitalOcean Droplet).
-- **Bonus:** Learn how to simulate DNS resolution locally using the OS `hosts` file.
+*(Part of the [roadmap.sh DevOps track](https://roadmap.sh/projects/basic-dns-setup))*
 
----
-
-## 🛠️ Task #1: Custom Domain for GitHub Pages
-
-GitHub Pages does not provide a static IP address; instead, it provides a subdomain (e.g., `username.github.io`). Therefore, we use a **CNAME Record** to map our custom domain to the GitHub Pages URL.
-
-### Steps:
-1. **Purchase a Domain:** Register a domain (e.g., `arm-devops.com`) from a provider like Cloudflare, Namecheap, or GoDaddy.
-2. **DNS Configuration (Domain Provider):**
-   - Go to your domain provider's DNS Management dashboard.
-   - Create a new record with the following details:
-     - **Type:** `CNAME`
-     - **Name:** `www` (or your desired subdomain)
-     - **Target/Value:** `sarawutms.github.io` (Your GitHub Pages default URL)
-3. **GitHub Configuration:**
-   - Go to your GitHub repository > **Settings** > **Pages**.
-   - Under **Custom domain**, type your new domain (e.g., `www.arm-devops.com`) and click **Save**.
-   - Wait for the DNS to propagate (can take a few minutes to hours).
-   - *Optional:* Check the "Enforce HTTPS" box to secure your site automatically.
+## 🎯 What I learned
+- How DNS resolution actually works.
+- When to use an `A` record (pointing to an IP) vs a `CNAME` record (pointing to another name).
+- How to "hack" the local DNS using the Windows `hosts` file for testing without buying a real domain.
 
 ---
 
-## 🖥️ Task #2: Custom Domain for DigitalOcean Droplet (or Linux Server)
+## 🛠️ Task 1: Custom Domain for GitHub Pages
 
-For a traditional web server setup (like the Nginx server in the previous project), the server is assigned a specific **Public IP Address**. We use an **A Record** to point our domain directly to this IP.
+GitHub Pages doesn't give you a static IP. Instead, it gives you a subdomain (like `sarawutms.github.io`). Because of this, we need to use a **CNAME Record**.
 
-### Steps:
-1. **Get the Server IP:** Identify the public IP of your Droplet/Server (e.g., `203.0.113.50`).
-2. **DNS Configuration (Domain Provider):**
-   - Go to the DNS Management dashboard.
-   - Create a new record with the following details:
-     - **Type:** `A`
-     - **Name:** `@` (This represents the root domain, e.g., `arm-devops.com`)
-     - **Target/Value:** `203.0.113.50` (Your server's Public IP)
-3. **Nginx Configuration (Server-side):**
-   - SSH into your server.
-   - Edit your Nginx configuration file (usually in `/etc/nginx/sites-available/`).
-   - Update the `server_name` directive to match your domain:
-     ```nginx
-     server {
-         listen 80;
-         server_name arm-devops.com [www.arm-devops.com](https://www.arm-devops.com);
-         root /var/www/html;
-         index index.html;
-     }
-     ```
-   - Restart Nginx: `sudo systemctl restart nginx`
+**How I would set it up (using a hypothetical domain `www.arm-devops.com`):**
+1. **DNS Provider:** Go to my domain provider's dashboard (e.g., Cloudflare) and add a `CNAME` record. Set the name to `www` and the target to `sarawutms.github.io`.
+2. **GitHub Settings:** In the repository settings under **Pages**, add the custom domain (`www.arm-devops.com`) and save. 
 
 ---
 
-## 💡 Bonus Lab: Local DNS Simulation (SysAdmin Approach)
+## 🖥️ Task 2: Custom Domain for a Linux Server (Nginx)
 
-In a local lab environment where the server uses a **Private IP** (e.g., `192.168.13.113`), public DNS cannot be used. To test domain mapping without buying a domain, you can override the local DNS resolution using the `hosts` file.
+Unlike GitHub Pages, a traditional web server (like my local Nginx setup) has a specific **IP Address**. For this, we use an **A Record**.
 
-### How to map a domain locally (Windows):
-1. Open **Notepad** as Administrator.
-2. Navigate to `C:\Windows\System32\drivers\etc` and open the `hosts` file.
-3. Add the target IP and the desired dummy domain at the bottom:
+**How I would set it up for a public server:**
+1. **DNS Provider:** Add an `A` record. Set the name to `@` (root domain) and point the target to the server's Public IP.
+2. **Server Config:** SSH into the Linux server, open the Nginx config file (`/etc/nginx/sites-available/default`), and update the `server_name` to match the domain.
+3. Restart Nginx to apply changes: `sudo systemctl restart nginx`
+
+---
+
+## 💡 Bonus: Local DNS Trick (SysAdmin Style)
+
+Since my current lab server uses a **Private IP** (`192.168.13.113`), I can't use public DNS. To test things out without buying a real domain, I simulated it locally using the Windows `hosts` file with a custom local domain: `arm-devops-lab.com`.
+
+**The process:**
+1. Opened **Notepad** as Administrator.
+2. Opened the file at `C:\Windows\System32\drivers\etc\hosts`.
+3. Added my Nginx server's IP and my dummy domain at the bottom:
    ```text
    192.168.13.113    arm-devops-lab.com
    ```
-4. Save the file.
-5. Open a web browser and navigate to http://arm-devops-lab.com. The operating system will bypass public DNS lookups and route traffic directly to the local Nginx server.
+4. Saved it. Now, typing http://arm-devops-lab.com in my browser bypasses the public internet and routes directly to my local Nginx server!  
+
+## 📸 Proof of Concept
+Here is the result of testing the local DNS resolution. The browser successfully resolves arm-devops-lab.com and serves my static site from the Nginx server:  
+![Local DNS Test showing Nginx Site](arm-devops-lab.jpg)
