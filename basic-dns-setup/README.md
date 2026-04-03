@@ -2,7 +2,7 @@
 
 A quick lab project to practice setting up DNS records. The goal here is simple: link a custom domain to a GitHub Pages site and a self-hosted Nginx Linux server. 
 
-*(Part of the [roadmap.sh DevOps track](https://roadmap.sh/projects/basic-dns-setup))*
+🔗 **Project URL:** [Basic DNS Setup](https://roadmap.sh/projects/basic-dns-setup)
 
 ## 🎯 What I learned
 - How DNS resolution actually works.
@@ -47,4 +47,5 @@ Since my current lab server uses a **Private IP** (`192.168.13.113`), I can't us
 
 ## 📸 Proof of Concept
 Here is the result of testing the local DNS resolution. The browser successfully resolves arm-devops-lab.com and serves my static site from the Nginx server:  
+
 ![Local DNS Test showing Nginx Site](arm-devops-lab.jpg)
