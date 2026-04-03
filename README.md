@@ -6,3 +6,4 @@
 🔗 [GitHub Pages Deployment](https://roadmap.sh/projects/github-actions-deployment-workflow) Write a simple GitHub Actions workflow to deploy a static website to GitHub Pages.  
 🔗 [SSH Remote Server Setup](https://roadmap.sh/projects/ssh-remote-server-setup) Setup a basic remote linux server and configure it to allow SSH.   
 🔗 [Static Site Server](https://roadmap.sh/projects/static-site-server) Setup a basic linux server and configure it to serve a static site.  
+🔗 [Basic DNS Setup](https://roadmap.sh/projects/basic-dns) Purchase a custom domain and set up basic DNS records.  
