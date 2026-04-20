@@ -1,5 +1,7 @@
 # Simple Monitoring Setup with Netdata 📊
 
+🔗 **Project URL:** [Simple Monitoring](https://roadmap.sh/projects/simple-monitoring-dashboard)  
+ 
 This project provides a set of Bash scripts to automate a monitoring setup using **Netdata**. It serves as an introduction to basic DevOps practices like Infrastructure as Code (IaC).
 
 ## 📂 Project Files
