@@ -1,0 +1,17 @@
+[Unit]
+Description=Dummy Systemd Service (Roadmap.sh Project)
+After=network.target
+
+[Service]
+Type=simple
+# รันในฐานะ user a12m เพื่อไม่ให้ไฟล์ log ติดสิทธิ์ root
+User=a12m
+# กำหนดโฟลเดอร์การทำงาน (Working Directory)
+WorkingDirectory=/home/a12m/labs/devops-labs/devops-roadmap-projects/dummy-systemd-service
+# ชี้ไปที่สคริปต์ในโฟลเดอร์นั้น
+ExecStart=/home/a12m/labs/devops-labs/devops-roadmap-projects/dummy-systemd-service/dummy.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
