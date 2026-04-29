@@ -1,6 +1,8 @@
 # Dummy Systemd Service
 
-This repository contains the solution for the [Dummy Systemd Service project](https://roadmap.sh/projects/dummy-systemd-service) from roadmap.sh. It demonstrates how to create, configure, and manage a custom, long-running systemd service on a Linux system.
+This repository contains the solution for the Dummy Systemd Service project from roadmap.sh. It demonstrates how to create, configure, and manage a custom, long-running systemd service on a Linux system.
+
+🔗 Project URL: [Dummy Systemd Service](https://roadmap.sh/projects/dummy-systemd-service)  
 
 ## Project Description
 
@@ -31,4 +33,39 @@ chmod +x dummy.sh
 **3. Link or copy the service file to the systemd directory**
 ```bash
 sudo cp dummy.service /etc/systemd/system/
+```
+**4. Reload the systemd daemon to recognize the new service**
+```bash
+sudo systemctl daemon-reload
+```
+**5. Start and enable the service**
+```bash
+sudo systemctl start dummy
+sudo systemctl enable dummy
+```
+## Usage & Management
+Use the following commands to interact with the service:  
+- Check Service Status:
+```bash
+sudo systemctl status dummy
+```
+- Stop the Service:
+```bash
+sudo systemctl stop dummy
+```
+- View Systemd Logs (Real-time):
+```bash
+sudo journalctl -u dummy -f
+```
+- View Custom Application Logs:
+```bash
+tail -f dummy-service.log
+```
+## Cleanup
+To completely remove the service from the system:
+```bash
+sudo systemctl stop dummy
+sudo systemctl disable dummy
+sudo rm /etc/systemd/system/dummy.service
+sudo systemctl daemon-reload
 ```
