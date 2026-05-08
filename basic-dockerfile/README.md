@@ -1,9 +1,8 @@
-cat << 'EOF' > README.md
 # Basic Dockerfile
 
-This repository contains a solution for the **Basic Dockerfile** project from [roadmap.sh](https://roadmap.sh/projects/basic-dockerfile). 
-
 The goal of this project is to create a simple Docker image that outputs a specific message to the console and then exits. It serves as a foundational exercise for understanding Docker configurations and container lifecycles.
+
+🔗 **Project URL:** [Basic Dockerfile](https://roadmap.sh/projects/basic-dockerfile)
 
 ## 🚀 Requirements Achieved
 - [x] The Dockerfile is named `Dockerfile`.
@@ -27,7 +26,6 @@ docker build -t my-hello-app .
 docker run my-hello-app
 ```
 ## ✨Expected Output:
-Plaintext
 ```bash
 Hello, Captain!
 ```
