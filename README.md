@@ -9,3 +9,4 @@
 🔗 [Basic DNS Setup](https://roadmap.sh/projects/basic-dns) Purchase a custom domain and set up basic DNS records.  
 🔗 [Simple Monitoring](https://roadmap.sh/projects/simple-monitoring-dashboard) Set up a basic monitoring dashboard using Netdata.  
 🔗 [Dummy Systemd Service](https://roadmap.sh/projects/dummy-systemd-service) Create a long-running systemd service that logs to a file.  
+🔗 [Basic Dockerfile](https://roadmap.sh/projects/basic-dockerfile) Build a basic Dockerfile to create a Docker image.  
